@@ -23,8 +23,7 @@ int printColorMap ()
   {
       for (j = 0; j < 5; j++)
 	{
-	  std:string pairEntry = formatColorPairEntry(i,j);
-	  cout<<pairEntry;
+	  cout<<formatColorPairEntry(i,j);
 	}
   }
   return i * j;
