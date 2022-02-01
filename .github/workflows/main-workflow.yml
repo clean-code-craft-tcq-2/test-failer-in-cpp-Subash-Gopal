@@ -5,6 +5,126 @@ on: [push, pull_request]
 jobs:
   build:
 
+test-failer-in-cpp-Subash-Gopal/.github/workflows/
+in
+master
+1
+
+name: Build and Run
+
+2
+
+​
+
+3
+
+on: [push, pull_request]
+
+4
+
+​
+
+5
+
+jobs:
+
+6
+
+  build:
+
+7
+
+​
+
+8
+
+    runs-on: ubuntu-latest
+
+9
+
+​
+
+10
+
+    steps:
+
+11
+
+    - uses: actions/checkout@v2
+
+12
+
+​
+
+13
+
+    - name: tshirts fail
+
+14
+
+      run: |
+
+15
+
+        g++ -Wall -Wextra -Werror tshirts.cpp -o tshirts.out
+
+16
+
+        ./tshirts.out
+
+17
+
+​
+
+18
+
+    - name: misaligned fail
+
+19
+
+      run: |
+
+20
+
+        g++ -Wall -Wextra -Werror misaligned.cpp -o misaligned.out
+
+21
+
+        ./misaligned.out
+
+22
+
+​
+
+23
+
+    - name: alerter fail
+
+24
+
+      run: |
+
+25
+
+        g++ -Wall -Wextra -Werror alerter.cpp -o alerter.out
+
+26
+
+        ./alerter.out
+
+27
+
+​
+
+Use Control + Space to trigger autocomplete in most situations.
+Featured Actions
+
+Cache artifacts like dependencies and build outputs to improve workflow execution time
+2.5k
+
+Upload a build artifact that can be used by subsequent workflow steps
+1.4k
+
     runs-on: ubuntu-latest
 
     steps:
@@ -13,14 +133,14 @@ jobs:
     - name: tshirts fail
       run: |
         g++ -Wall -Wextra -Werror tshirts.cpp -o tshirts.out
-        bash .github/workflows/expectfail.sh ./tshirts.out
+        ./tshirts.out
 
     - name: misaligned fail
       run: |
         g++ -Wall -Wextra -Werror misaligned.cpp -o misaligned.out
-        bash .github/workflows/expectfail.sh ./misaligned.out
+        ./misaligned.out
 
     - name: alerter fail
       run: |
         g++ -Wall -Wextra -Werror alerter.cpp -o alerter.out
-        bash .github/workflows/expectfail.sh ./alerter.out
+        ./alerter.out
