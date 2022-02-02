@@ -6,7 +6,7 @@ using namespace std;
 
 const char* majorColor[] = { "White", "Red", "Black", "Yellow", "Violet" };
 const char* minorColor[] = { "Blue", "Orange", "Green", "Brown", "Slate" };
-const COLOR_PAIR_STARTING_INDEX = 1;
+const int COLOR_PAIR_STARTING_INDEX = 1;
 
 std::string formatColorPairEntry(int majorColorIndex, int minorColorIndex) {
     ostringstream oss;
