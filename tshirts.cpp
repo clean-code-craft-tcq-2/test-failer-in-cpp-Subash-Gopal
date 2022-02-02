@@ -1,11 +1,12 @@
 #include <iostream>
 #include <assert.h>
+#include <climits>
 
 char size(int cms) {
     char sizeName = '\0';
     if(cms < 38) {
         sizeName = 'S';
-    } else if(cms > 38 && cms < 42) {
+    } else if(cms >= 38 && cms <= 42) {
         sizeName = 'M';
     } else if(cms > 42) {
         sizeName = 'L';
@@ -15,8 +16,12 @@ char size(int cms) {
 
 int main() {
     assert(size(37) == 'S');
+    assert(size(38) == 'M');
     assert(size(40) == 'M');
+    assert(size(42) == 'M');
     assert(size(43) == 'L');
+    assert(size(INT_MIN) == 'S');
+    assert(size(INT_MAX) == 'L');
     std::cout << "All is well (maybe!)\n";
     return 0;
 }
