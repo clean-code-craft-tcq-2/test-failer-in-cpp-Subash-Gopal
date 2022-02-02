@@ -8,10 +8,15 @@ const char* majorColor[] = { "White", "Red", "Black", "Yellow", "Violet" };
 const char* minorColor[] = { "Blue", "Orange", "Green", "Brown", "Slate" };
 const int COLOR_PAIR_STARTING_INDEX = 1;
 
+int calcColorPairIndex(int majorColorIndex, int minorColorIndex)
+{
+	return majorColorIndex * 5 + minorColorIndex + COLOR_PAIR_STARTING_INDEX;
+}
+
 std::string formatColorPairEntry(int majorColorIndex, int minorColorIndex) {
     ostringstream oss;
     auto cout_buff = cout.rdbuf(oss.rdbuf());
-    cout<<std::setw(2)<<std::left<< majorColorIndex * 5 + minorColorIndex + COLOR_PAIR_STARTING_INDEX <<std::left << std::setw(3) << " | " << std::left << std::setw(6) << majorColor[majorColorIndex] << std::left << std::setw(3) << " | " << std::left << std::setw(3) << minorColor[minorColorIndex] << "\n";	  cout.rdbuf (cout_buff);
+    cout<<std::setw(2)<<std::left<<calcColorPairIndex(majorColorIndex, minorColorIndex)  <<std::left << std::setw(3) << " | " << std::left << std::setw(6) << majorColor[majorColorIndex] << std::left << std::setw(3) << " | " << std::left << std::setw(3) << minorColor[minorColorIndex] << "\n";	  cout.rdbuf (cout_buff);
     cout.rdbuf(cout_buff);
     std::string formattedColorPairEntry  = oss.str();
     return formattedColorPairEntry;
